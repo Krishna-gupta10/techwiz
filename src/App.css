@@ -27,6 +27,11 @@
 .App-link {
   color: #61dafb;
 }
+.dropdown-menu .dropdown-item:hover {
+  background-color: #f8f9fa;
+  color: #000000;
+}
+
 
 @keyframes App-logo-spin {
   from {
