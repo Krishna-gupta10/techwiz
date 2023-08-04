@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/techwiz/static/css/main.e6c13ad2.css",
+    "main.js": "/techwiz/static/js/main.24bc133f.js",
+    "static/js/787.cc754139.chunk.js": "/techwiz/static/js/787.cc754139.chunk.js",
+    "static/media/loading.gif": "/techwiz/static/media/loading.9573dc1705aca8872539.gif",
+    "index.html": "/techwiz/index.html",
+    "main.e6c13ad2.css.map": "/techwiz/static/css/main.e6c13ad2.css.map",
+    "main.24bc133f.js.map": "/techwiz/static/js/main.24bc133f.js.map",
+    "787.cc754139.chunk.js.map": "/techwiz/static/js/787.cc754139.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.24bc133f.js"
+  ]
+}
