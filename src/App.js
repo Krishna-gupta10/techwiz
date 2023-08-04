@@ -24,11 +24,11 @@ export default class App extends Component {
   };
 
   state = {
-    progress: 0 
+    progress: 0
   }
 
-  setProgress = (progress)=> {
-    this.setState({progress: progress})
+  setProgress = (progress) => {
+    this.setState({ progress: progress })
   }
 
   render() {
@@ -44,22 +44,27 @@ export default class App extends Component {
             <Route
               exact
               path="/"
-              element={<News setProgress = {this.setProgress} key="in" pageSize={15} countryName="India" country="in" search={`&q=${this.state.searchValue}`} />}
+              element={<News setProgress={this.setProgress} key="in" pageSize={15} countryName="India" country="in" search={`&q=${this.state.searchValue}`} />}
+            />
+            <Route
+              exact
+              path="/techwiz"
+              element={<News setProgress={this.setProgress} key="in" pageSize={15} countryName="India" country="in" search={`&q=${this.state.searchValue}`} />}
             />
             <Route
               exact
               path="/india-news"
-              element={<News setProgress = {this.setProgress} key="in" pageSize={15} countryName="India" country="in" search={`&q=${this.state.searchValue}`} />}
+              element={<News setProgress={this.setProgress} key="in" pageSize={15} countryName="India" country="in" search={`&q=${this.state.searchValue}`} />}
             />
             <Route
               exact
               path="/us-news"
-              element={<News setProgress = {this.setProgress} key="us" pageSize={15} countryName="USA" country="us" search={`&q=${this.state.searchValue}`} />}
+              element={<News setProgress={this.setProgress} key="us" pageSize={15} countryName="USA" country="us" search={`&q=${this.state.searchValue}`} />}
             />
             <Route
               exact
               path="/canada-news"
-              element={<News setProgress = {this.setProgress} key="ca" pageSize={15} countryName="Canada" country="ca" search={`&q=${this.state.searchValue}`} />}
+              element={<News setProgress={this.setProgress} key="ca" pageSize={15} countryName="Canada" country="ca" search={`&q=${this.state.searchValue}`} />}
             />
           </Routes>
         </div>
