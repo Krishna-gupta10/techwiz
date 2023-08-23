@@ -1,74 +1,56 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import News from './components/News';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LoadingBar from 'react-top-loading-bar'
 
-export default class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      searchValue: '',
-    };
-  }
+function App() {
+  const [searchValue, setSearchValue] = useState('');
+  const [progress, setProgress] = useState(0);
 
-  getSearchItem = (a) => {
-    this.setState(
-      {
-        searchValue: a,
-      },
-      () => {
-        console.log(this.state.searchValue);
-      }
-    );
+  const getSearchItem = (a) => {
+    setSearchValue(a);
+    console.log(searchValue);
   };
 
-  state = {
-    progress: 0
-  }
-
-  setProgress = (progress) => {
-    this.setState({ progress: progress })
-  }
-
-  render() {
-    return (
-      <BrowserRouter>
-        <div>
-          <Navbar getSearchItem={this.getSearchItem} />
-          <LoadingBar
-            color='#f11946'
-            progress={this.state.progress}
+  return (
+    <BrowserRouter>
+      <div>
+        <Navbar getSearchItem={getSearchItem} />
+        <LoadingBar
+          color='#f11946'
+          progress={progress}
+        />
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={<News setProgress={setProgress} key="in" pageSize={15} countryName="India" country="in" search={`&q=${searchValue}`} />}
           />
-          <Routes>
-            <Route
-              exact
-              path="/"
-              element={<News setProgress={this.setProgress} key="in" pageSize={15} countryName="India" country="in" search={`&q=${this.state.searchValue}`} />}
-            />
-            <Route
-              exact
-              path="/techwiz"
-              element={<News setProgress={this.setProgress} key="in" pageSize={15} countryName="India" country="in" search={`&q=${this.state.searchValue}`} />}
-            />
-            <Route
-              exact
-              path="/india-news"
-              element={<News setProgress={this.setProgress} key="in" pageSize={15} countryName="India" country="in" search={`&q=${this.state.searchValue}`} />}
-            />
-            <Route
-              exact
-              path="/us-news"
-              element={<News setProgress={this.setProgress} key="us" pageSize={15} countryName="USA" country="us" search={`&q=${this.state.searchValue}`} />}
-            />
-            <Route
-              exact
-              path="/canada-news"
-              element={<News setProgress={this.setProgress} key="ca" pageSize={15} countryName="Canada" country="ca" search={`&q=${this.state.searchValue}`} />}
-            />
-          </Routes>
-        </div>
-      </BrowserRouter>
-    );
-  }
+          <Route
+            exact
+            path="/techwiz"
+            element={<News setProgress={setProgress} key="in" pageSize={15} countryName="India" country="in" search={`&q=${searchValue}`} />}
+          />
+          <Route
+            exact
+            path="/india-news"
+            element={<News setProgress={setProgress} key="in" pageSize={15} countryName="India" country="in" search={`&q=${searchValue}`} />}
+          />
+          <Route
+            exact
+            path="/us-news"
+            element={<News setProgress={setProgress} key="us" pageSize={15} countryName="USA" country="us" search={`&q=${searchValue}`} />}
+          />
+          <Route
+            exact
+            path="/canada-news"
+            element={<News setProgress={setProgress} key="ca" pageSize={15} countryName="Canada" country="ca" search={`&q=${searchValue}`} />}
+          />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
 }
+
+export default App;

@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-export class Navbar extends Component {
-  searchValue = () => {
+function Navbar(props) {
+  const searchValue = () => {
     let a = document.getElementById('search-box').value;
-    this.props.getSearchItem(a);
+    props.getSearchItem(a);
   };
 
-  render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
@@ -35,7 +34,7 @@ export class Navbar extends Component {
                   placeholder="Search"
                   aria-label="Search"
                 />
-                <button onClick={this.searchValue} className="btn btn-outline-success">
+                <button onClick={searchValue} className="btn btn-outline-success">
                   Search
                 </button>
               </div>
@@ -72,7 +71,6 @@ export class Navbar extends Component {
         </div>
       </nav>
     );
-  }
 }
 
 export default Navbar;
