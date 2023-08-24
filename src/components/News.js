@@ -39,6 +39,7 @@ function News(props) {
     if (props.search) {
       setTitle(`Search results for "${props.search}"`);
     }
+    // eslint-disable-next-line
   }, [props.country, props.search]);
   
   
