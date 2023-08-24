@@ -26,10 +26,12 @@ function News(props) {
   const fetchMoreData = async () => {
     setPage(page + 1);
     let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=technology&apiKey=dc7668713a914b3da08805f0114db92c&page=${page + 1}&pageSize=${props.pageSize}${props.search}`;
+    setLoading(true);
     let data = await fetch(url);
     let parsedData = await data.json();
     setArticles([...articles, ...parsedData.articles]);
     setTotalResults(parsedData.totalResults);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -39,7 +41,7 @@ function News(props) {
   return (
     <>
       <div className="text-center my-4">
-        <h1>Top Tech Headlines of {props.countryName}</h1>
+        <h1 style = {{marginTop: '80px'}}>Top Tech Headlines of {props.countryName}</h1>
       </div>
 
       {loading && <Spinner />}
